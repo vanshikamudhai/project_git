@@ -15,9 +15,7 @@
       --line: rgba(255, 255, 255, 0.18);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       min-height: 100vh;
@@ -34,7 +32,7 @@
     }
 
     .stage {
-      width: min(92vw, 760px);
+      width: min(92vw, 820px);
       padding: clamp(28px, 6vw, 72px);
       position: relative;
       border: 1px solid var(--line);
@@ -43,6 +41,43 @@
       box-shadow: 0 32px 90px rgba(0, 0, 0, 0.36);
       backdrop-filter: blur(22px);
       text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 42px;
+    }
+
+    .nav a,
+    .button {
+      min-height: 46px;
+      padding: 0 18px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .nav a[aria-current="page"],
+    .button.primary {
+      color: #07131f;
+      border-color: transparent;
+      background: linear-gradient(90deg, #6ee7b7, #fef08a);
+    }
+
+    .nav a:hover,
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.14);
     }
 
     .sparkle {
@@ -86,7 +121,7 @@
     }
 
     .copy {
-      width: min(100%, 560px);
+      width: min(100%, 580px);
       margin: 28px auto 0;
       color: var(--muted);
       font-size: clamp(1rem, 2.2vw, 1.2rem);
@@ -101,36 +136,6 @@
       margin-top: 34px;
     }
 
-    .button {
-      min-height: 48px;
-      padding: 0 20px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.08);
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .button.primary {
-      color: #07131f;
-      border-color: transparent;
-      background: linear-gradient(90deg, #6ee7b7, #fef08a);
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255, 255, 255, 0.42);
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .button.primary:hover {
-      background: linear-gradient(90deg, #86efac, #fde68a);
-    }
-
     @keyframes float {
       0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
       50% { transform: translateY(-18px) scale(1.35); opacity: 1; }
@@ -143,14 +148,20 @@
     <span class="sparkle" aria-hidden="true"></span>
     <span class="sparkle" aria-hidden="true"></span>
 
+    <nav class="nav" aria-label="Main navigation">
+      <a href="hello-world.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
     <p class="eyebrow">A tiny first page</p>
     <h1>Hello<span class="gradient-text">World</span></h1>
     <p class="copy">
-      A polished little starter file with glassy depth, soft motion, and a bright friendly glow.
+      A polished little starter site with glassy depth, soft motion, and a bright friendly glow.
     </p>
-    <div class="button-row" aria-label="Greeting actions">
-      <a class="button primary" href="#">Shine on</a>
-      <a class="button" href="#">Looks fancy</a>
+    <div class="button-row" aria-label="Page links">
+      <a class="button primary" href="about.html">Meet the page</a>
+      <a class="button" href="contact.html">Say hello</a>
     </div>
   </main>
 </body>
